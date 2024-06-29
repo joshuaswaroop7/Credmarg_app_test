@@ -12,9 +12,11 @@ import NavComponent from './components/NavComponent';
 
 function App() {
   return (
+    <div className='wrapper'>
     <Router>
       <HeaderComponent/>
       <NavComponent />
+      <div className='main'>
       <Routes>
         <Route path="/create-employee" element={<CreateEmployee />} />
         <Route path="/create-vendor" element={<CreateVendor />} />
@@ -22,8 +24,10 @@ function App() {
         <Route path="/view-vendors" element={<ViewVendors />} />
         <Route path="/emails" element={<CheckEmailExistence />} />
       </Routes>
+      </div>
       <FooterComponent/>
     </Router>
+    </div>
   );
 }
 
