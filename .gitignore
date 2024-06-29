@@ -1,0 +1,11 @@
+# Node modules
+/credmarg_frontend/node_modules
+
+# Build directories
+/credmarg_frontend/build
+/credmarg_backend/target
+
+# IDE directories
+/.idea
+/.vscode
+ 
