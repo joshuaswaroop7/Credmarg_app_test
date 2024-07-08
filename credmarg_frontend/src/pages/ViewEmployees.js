@@ -40,7 +40,6 @@ function ViewEmployees() {
       ></input>
       <Button onClick={searchEmp}>Search</Button>
       
-      <h2>View Employees</h2>
       <EmployeeList employees={employees} emp={data} />
     </div>
   );

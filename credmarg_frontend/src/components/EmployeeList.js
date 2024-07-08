@@ -21,6 +21,7 @@ function EmployeeList(props) {
           ))}
         </tbody>
       </table>
+      <h2 style={{ marginTop: '50px' }}>View Employee List</h2>
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
