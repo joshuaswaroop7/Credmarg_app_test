@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EmployeeList from "../components/EmployeeList";
-import { getAllEmployees, getEmpByName } from "../services/api";
+import { getAllEmployees, getEmpByName, getAllSortEmployees } from "../services/api";
 import { Button } from "react-bootstrap";
 
 function ViewEmployees() {
@@ -11,6 +11,10 @@ function ViewEmployees() {
   useEffect(() => {
     getAllEmployees().then((response) => setEmployees(response.data));
   }, []);
+
+  function sortEmpByName(){
+    getAllSortEmployees().then((response) => setEmployees(response.data));
+  }
 
   function search(e) {
     setName(e.target.value);
@@ -38,9 +42,9 @@ function ViewEmployees() {
         onChange={search}
         style={{ marginRight: '10px' }}
       ></input>
-      <Button onClick={searchEmp}>Search</Button>
+      <Button style={{ marginBottom: '10px' }} onClick={searchEmp}>Search</Button>
       
-      <EmployeeList employees={employees} emp={data} />
+      <EmployeeList employees={employees} emp={data} sortEmpByName={sortEmpByName}/>
     </div>
   );
 }

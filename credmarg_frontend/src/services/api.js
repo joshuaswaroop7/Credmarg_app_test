@@ -11,6 +11,7 @@ const api = axios.create({
   });
 
 export const getAllEmployees = () => api.get(`${API_URL}/employee/getAllEmployees`);
+export const getAllSortEmployees = () => api.get(`${API_URL}/employee/getAllSortEmployees`);
 export const getAllVendors = () => api.get(`${API_URL}/vendor/getAllVendors`);
 export const createEmployee = (employee) => api.post(`${API_URL}/employee/save`, employee);
 export const createVendor = (vendor) => api.post(`${API_URL}/vendor/save`, vendor);

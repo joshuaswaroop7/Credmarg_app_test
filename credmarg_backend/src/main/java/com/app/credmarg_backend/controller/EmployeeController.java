@@ -25,6 +25,12 @@ public class EmployeeController {
     }
 
     @GetMapping("/getAllEmployees")
+    public ResponseEntity<List<EmployeeDto>> getAllEmployee(){
+        List<EmployeeDto> allEmployee = employeeService.getAllEmployees();
+        return ResponseEntity.ok(allEmployee);
+    }
+
+    @GetMapping("/getAllSortEmployees")
     public ResponseEntity<List<EmployeeDto>> getAllEmployees(){
         List<EmployeeDto> allEmployee = employeeService.getAllEmployees();
         List<EmployeeDto> allEmployees = allEmployee.stream().sorted((o1, o2)->o1.getName().compareTo(o2.getName())).collect(Collectors.toList());

@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 function EmployeeList(props) {
   return (
@@ -22,9 +23,11 @@ function EmployeeList(props) {
         </tbody>
       </table>
       <h2 style={{ marginTop: '50px' }}>View Employee List</h2>
+      <Button style={{ marginBottom: '50px' }} onClick={props.sortEmpByName}>Sort Employee List by Employee Name</Button>
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
+            <th>Emp Id</th>
             <th>Name</th>
             <th>Designation</th>
             <th>CTC</th>
@@ -33,6 +36,7 @@ function EmployeeList(props) {
         <tbody>
           {props.employees.map((employee) => (
             <tr key={employee.email}>
+              <td>{employee.employeeId}</td>
               <td>{employee.name}</td>
               <td>{employee.designation}</td>
               <td>{employee.ctc}</td>
