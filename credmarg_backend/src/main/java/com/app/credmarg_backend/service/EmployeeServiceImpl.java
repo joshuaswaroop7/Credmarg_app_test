@@ -37,4 +37,10 @@ public class EmployeeServiceImpl implements EmployeeService{
         Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResponseNotFoundException("Employee doesn't exist with this " + id));
         return EmployeeMapper.mapToEmployeeDto(employee);
     }
+
+    @Override
+    public EmployeeDto getEmployeeByName(String name) {
+        Employee empByName = employeeRepository.findByName(name);
+        return EmployeeMapper.mapToEmployeeDto(empByName);
+    }
 }

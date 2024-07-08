@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/employee")
@@ -25,7 +26,9 @@ public class EmployeeController {
 
     @GetMapping("/getAllEmployees")
     public ResponseEntity<List<EmployeeDto>> getAllEmployees(){
-        List<EmployeeDto> allEmployees = employeeService.getAllEmployees();
+        List<EmployeeDto> allEmployee = employeeService.getAllEmployees();
+        List<EmployeeDto> allEmployees = allEmployee.stream().sorted((o1, o2)->o1.getName().compareTo(o2.getName())).collect(Collectors.toList());
+        System.out.println(allEmployees);
         return ResponseEntity.ok(allEmployees);
     }
 
@@ -33,6 +36,12 @@ public class EmployeeController {
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable("id") Long id){
         EmployeeDto employeeById = employeeService.getEmployeeById(id);
         return ResponseEntity.ok(employeeById);
+    }
+
+    @GetMapping("/emp/{name}")
+    public ResponseEntity<EmployeeDto> getEmployeeByName(@PathVariable("name") String name){
+        EmployeeDto employeeByName = employeeService.getEmployeeByName(name);
+        return ResponseEntity.ok(employeeByName);
     }
 
 }

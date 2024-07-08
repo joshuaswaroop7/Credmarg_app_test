@@ -16,6 +16,7 @@ export const createEmployee = (employee) => api.post(`${API_URL}/employee/save`,
 export const createVendor = (vendor) => api.post(`${API_URL}/vendor/save`, vendor);
 export const checkEmailExists = (email) => api.get(`${API_URL}/emails/check-email/${email}`);
 export const getAllSentEmails = () => api.get(`${API_URL}/sent-emails`);
+export const getEmpByName = (name) => api.get(`${API_URL}/employee/emp/${name}`);
 export const sendEmails = (email, message) => api.post(`${API_URL}/emails/send`, null, {
     params: {
         email: email,
